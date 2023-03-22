@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body{
+        @apply max-w-7xl mx-auto px-4 dark:bg-neutral-900 dark:text-amber-50 transition-all duration-500 animate-born ;
+        /* @apply dark: bg-red-400 dark: text-blue-800; */
+    }
+}
+
+.max-h-75vh{
+  max-height: 75vh;
+}
+.grid-75-25{
+  grid-template-columns: 75% 25%;
+}
+.grid-60-40{
+  grid-template-columns: 60% 40%;
+}
+
+.animate-born{
+    animation: born 1.5s linear ;
+    /* transform: ; */
+  }
+  @keyframes born {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;;
+      }
+  }
+
+/* ----------------------------*/
+.error {
+    animation: cartel 1s 1;
+    transform-origin: top center;
+}
+
+@keyframes cartel {
+    20% {
+        transform: rotate(20deg);
+    }
+
+    40% {
+        transform: rotate(-15deg);
+    }
+
+    60% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-5deg);
+    }
+}
+/* 
+ ? ------------------------ SCROLL BAR  ------------------------
+*/
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: white ;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: black;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid black;
+  }
+
+
