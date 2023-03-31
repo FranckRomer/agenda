@@ -15,12 +15,14 @@
 
 @layer components{
   .bg-light{
-    background: rgb(173,169,255);
-    background: linear-gradient(132deg, rgba(173,169,255,1) 0%, rgba(0,255,134,1) 100%); 
+    /* background: rgb(173,169,255);
+    background: linear-gradient(132deg, rgba(173,169,255,1) 0%, rgba(0,255,134,1) 100%);  */
+    background-color: gainsboro;
   }
   .bg-darks{
-    background: rgb(35,109,173);
-    background: linear-gradient(132deg, rgba(35,109,173,1) 0%, rgba(0,0,0,1) 100%); 
+    /* background: rgb(35,109,173);
+    background: linear-gradient(132deg, rgba(35,109,173,1) 0%, rgba(0,0,0,1) 100%);  */
+    background-color: #191919;
   }
 }
 

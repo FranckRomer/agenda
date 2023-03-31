@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
 
-      <main className='grid mx-auto my-4 md:grid-cols-2 '>
+      <main className='grid mx-auto my-4 md:grid-cols-2 min-h-screen'>
 
 
         <section className='grid text-center gap-y-4 m-auto'>

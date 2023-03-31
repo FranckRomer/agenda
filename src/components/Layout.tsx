@@ -8,7 +8,7 @@ const Layout = ({children}:any) => {
         <>
             <Head>
                 <title>Mi Agenda</title>
-                <meta name='description' content='Create Dark Mode in Next js and tailwind' />
+                <meta name='description' content='Agenda para uso general' />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className='min-h-screen flex flex-col '>
