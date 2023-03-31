@@ -2,15 +2,15 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import ModoOscuro from '@/components/ModoOscuro'
 import Button from '@/components/Button'
-// import Image from 'next/image'
+import Image from 'next/image'
 // import axios from 'axios';
 
 const Header = () => {
     const [menu, setMenu] = useState(false)
 
     const navigations = [
-        { label: 'Inicio', path: '/', },
-        { label: 'Agenda', path: '/agenda' },
+        { label: 'Inicio', path: '/', svg:"svgs/home.svg"},
+        { label: 'Agenda', path: '/agenda', svg: "svgs/agenda.svg" },
     ]
 
 
@@ -38,8 +38,15 @@ const Header = () => {
                             <Link
                                 href={nav.path}
                                 key={index}
-                                className='font-semibold text-gray-900 hover:text-blue-500 dark:text-gray-50 dark:hover:text-blue-500'
+                                className='flex gap-1 items-center font-semibold text-gray-900 hover:text-blue-500 dark:text-gray-50 dark:hover:text-blue-500'
                             >
+                                <Image
+                                    className='dark:invert'
+                                    src={nav.svg}
+                                    alt="Home"
+                                    width={20}
+                                    height={20}
+                                />
                                 <h3 className='hidden md:block '>
                                     {nav.label}
                                 </h3>
@@ -72,6 +79,9 @@ const Header = () => {
                 :
                 ""
             }
+
+
+            {/* <Image src="/svgs/home.svg" alt="Home" height={30} width={30} /> */}
 
 
         </header>

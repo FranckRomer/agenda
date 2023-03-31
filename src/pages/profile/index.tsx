@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import MsgError from '@/components/MsgError';
 import Button from '@/components/Button';
 import Link from 'next/link';
+import Tarjeta from '@/components/Tarjeta';
 
 const Profile = () => {
     const [user, setUser] = useState({
@@ -46,7 +47,9 @@ const Profile = () => {
     };
 
     return (
-        <div className='grid m-auto w-fit p-12 gap-y-12 mt-12 bg-white/70 dark:bg-black/70 border dark:border-white/20 dark:text-white shadow-lg shadow-black dark:shadow-white/20 rounded-xl'>
+        <Tarjeta>
+
+        {/* <div className='grid m-auto w-fit p-12 gap-y-12 mt-12 bg-white/70 dark:bg-black/70 border dark:border-white/20 dark:text-white shadow-lg shadow-black dark:shadow-white/20 rounded-xl'> */}
             {error ?
                 <div className='grid gap-y-4 text-center  p-4 m-4 rounded-xl'>
                     <MsgError
@@ -80,7 +83,8 @@ const Profile = () => {
                     </div>
                 </div>
             }
-        </div>
+        {/* </div> */}
+        </Tarjeta>
     )
 }
 

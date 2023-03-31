@@ -1,0 +1,5 @@
+{
+    "files.autoSave": "onWindowChange",
+    "editor.fontFamily": "'Jetbrains Mono', 'monospace', monospace",
+    "editor.fontLigatures": false
+}

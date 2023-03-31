@@ -9,9 +9,31 @@ export default async function loginHandler(req, res) {
     // console.log(req.body)
     const { email, password } = req.body
 
-    if (email == "" || password=="") {
+    if (email === "") {
         console.log("Mensajes vacios");
-        return res.status(401).json({error: 'Mensajes vacios'})
+        console.log("!!!!! CONFIRMED USURAIO DE PRUEBA !!!!!")
+        const token = jwt.sign({
+            exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 30),  //seg min hora dia
+            email: "prueba@prueba.com",
+            username: "Prueba",
+            proyect: "agenda"
+        }, 'secret')
+
+        const serialized = cookie.serialize('myTokenName', token, {
+            httpOnly: true,
+            // secure: process.env.NODE_ENV === 'production',
+            // sameSite: 'strict',
+            Secure: false,
+            SameSite: "None",
+            maxAge: 1000 * 60 * 60 * 24 * 30,
+            path: '/'
+
+            
+        })
+
+        res.setHeader('Set-Cookie', serialized)
+        return res.json('login succesfully')
+        // return res.status(401).json({error: 'Mensajes vacios'})
     }
     // check if email and password are valid
     let querys = {"email":email}
@@ -55,6 +77,10 @@ export default async function loginHandler(req, res) {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             path: '/'
         })
+
+        if (condition ) {
+            
+        }
 
         res.setHeader('Set-Cookie', serialized)
         return res.json('login succesfully')

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Button from './Button'
-import Link from 'next/link'
+// import Link from 'next/link'
 import axios from 'axios';
+import Tarjeta from './Tarjeta';
 
 const ListaTareas = () => {
     const [datos, setDatos] = useState([
-        { titulo: "", fecha: "", _id:"" }
+        { titulo: "", fecha: "", _id: "" }
     ])
     const [error, setError] = useState(false)
     const [eliminarDato, setEliminarDato] = useState({
@@ -26,16 +27,16 @@ const ListaTareas = () => {
             setError(false)
             setTimeout(() => {
                 setError(true)
-                const datosPerdidos = [{ titulo: "", fecha: "", _id:"" }]
+                const datosPerdidos = [{ titulo: "", fecha: "", _id: "" }]
                 setDatos(datosPerdidos)
             }, 100);
         }
     }
-    const EliminarDato = async (tarea:object) => { 
+    const EliminarDato = async (tarea: object) => {
         // tarea.preventDefault()
-                      
+
         try {
-            await axios.post('/api/methods/delete', tarea );
+            await axios.post('/api/methods/delete', tarea);
             // setDatos(tareas.data)
             // console.log(tareas.data);
             ObtenerDatos()
@@ -48,7 +49,9 @@ const ListaTareas = () => {
     }
     //
     return (
-        <section className='max-h-75vh overflow-y-auto grid  w-fit p-12  bg-white/30 dark:bg-black/40 border dark:border-white/20 dark:text-white shadow-lg shadow-black dark:shadow-white/20 rounded-xl'>
+        <Tarjeta>
+
+            {/* <section className='max-h-75vh overflow-y-auto grid  w-fit p-12  bg-white/30 dark:bg-black/40 border dark:border-white/20 dark:text-white shadow-lg shadow-black dark:shadow-white/20 rounded-xl'> */}
             <h1 className='text-3xl font-semibold text-center m-4'>
                 Tareas 📅
             </h1>
@@ -79,7 +82,7 @@ const ListaTareas = () => {
                                 {/* <div className='flex justify-center'>
                                     <Link href={"/"}>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 hover:scale-125">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                                         </svg>
                                     </Link>
                                 </div> */}
@@ -89,7 +92,8 @@ const ListaTareas = () => {
                 </>
             }
 
-        </section>
+            {/* </section> */}
+        </Tarjeta>
     )
 }
 
