@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Login from '@/components/Login'
 import axios from 'axios';
-import Image from 'next/image';
+// import Image from 'next/image';
 import ListaTareas from '@/components/ListaTareas';
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
 
-      <main className='grid mx-auto h-screen md:grid-cols-2'>
+      <main className='grid mx-auto my-4 md:grid-cols-2 '>
 
 
         <section className='grid text-center gap-y-4 m-auto'>

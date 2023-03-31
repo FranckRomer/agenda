@@ -11,7 +11,7 @@ const Layout = ({children}:any) => {
                 <meta name='description' content='Create Dark Mode in Next js and tailwind' />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className='min-h-screen flex flex-col'>
+            <div className='min-h-screen flex flex-col '>
                 <Header/>
                 <main className='flex-grow'>
                     {children}
