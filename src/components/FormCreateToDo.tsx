@@ -2,15 +2,18 @@ import axios from 'axios'
 import MsgError from './MsgError'
 import Button from './Button'
 import { useState } from 'react'
-
+import Tarjeta from './Tarjeta'
 
 const FormCreateToDo = () => {
+    const [confirmacion, setConfirmacion] = useState(false)
+    const [error, setError] = useState(false)
+    const [erroTitulo, setErrorTitulo] = useState("")
     const [Credencials, setCredencials] = useState({
         Titulo: '',
         fecha: '',
-        descripcion:'',
+        descripcion: '',
+        nombre:'',
     })
-    const [error, setError] = useState(false)
     const Formulario = [
         { label: "Nombre: ", name: "nombre", type: "text", placeholder: "Nombre", },
         { label: "Apodo: ", name: "apodo", type: "text", placeholder: "Apodo", },
@@ -28,28 +31,53 @@ const FormCreateToDo = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault()
         // console.log(Credencials)
-        try {
-            const response = await axios.post('/api/methods/create', Credencials)
-            console.log(response)            
-        } catch (error) {
+        if (Credencials.nombre === "") {
             setError(false)
             console.log(error);
             setTimeout(() => {
-                console.log("1 Segundo esperado")
+                // console.log("1 Segundo esperado")
+                setErrorTitulo("No puede crear un usuario vacio")
                 setError(true)
             }, 150);
+
+        } 
+        else{
+            try {
+                const response = await axios.post('/api/methods/create', Credencials)
+                console.log(response)
+                setConfirmacion(true)
+    
+            } catch (error) {
+                setError(false)
+                console.log(error);
+                setTimeout(() => {
+                    // console.log("1 Segundo esperado")
+                    setErrorTitulo("Ah ocurrido algo inprevisto, vuelva a intentarlo")
+                    setError(true)
+                }, 150);
+            }
         }
     }
 
     // --------------------------------------------------------------------------------------
     return (
         <>
-            {error ?
-                <MsgError
-                    titulo="Error de Peticion"
-                    msg="Ah ocurrido algo inprevisto"
-                ></MsgError>
-                : ""
+            {
+                error ?
+                    <MsgError
+                        titulo="Error de Peticion"
+                        msg={erroTitulo}
+                    ></MsgError>
+                    : ""
+            }
+            {
+                confirmacion ?
+                    <div className='absolute top-0 left-0 right-0 bottom-0 w-fit h-fit m-auto bg-white/90 dark:bg-black/90 rounded-xl p-12 items-center grid gap-y-4 z-30'>
+                        <h1 className='text-3xl text-green-500 font-semibold'>¡ Contacto Creado !</h1>
+                        <Button className='border border-black dark:border-white m-4' onClick={()=>setConfirmacion(false)}>Aceptar</Button>
+                    </div>
+                    :
+                    ""
             }
 
             <form onSubmit={handleSubmit}>
@@ -78,6 +106,7 @@ const FormCreateToDo = () => {
                     </Button>
                 </div>
             </form>
+                    {/* <Button onClick={()=>setConfirmacion(true)}>Aceptar</Button> */}
         </>
     )
 }

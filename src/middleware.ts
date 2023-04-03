@@ -24,5 +24,5 @@ export async function middleware(request: any) {
 }
 
 export const config = {
-    matcher: ["/agenda/:path*", "/profile/:path*"],
+    matcher: ["/agenda/:path*", "/profile/:path*", "/addContact/:path*"],
 };
