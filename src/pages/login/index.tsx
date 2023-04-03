@@ -1,6 +1,4 @@
-// import React from 'react'
-// import Link from 'next/link'
-// import FormLogin from '@/components/FormLogin'
+
 import Login from '@/components/Login'
 
 const Logins = () => {

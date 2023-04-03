@@ -12,8 +12,9 @@ const FormCreateToDo = () => {
     })
     const [error, setError] = useState(false)
     const Formulario = [
-        { label: "Tarea: ", name: "titulo", type: "text", placeholder: "Titulo", },
-        { label: "Fecha: ", name: "fecha", type: "date", placeholder: "Fecha", },
+        { label: "Nombre: ", name: "nombre", type: "text", placeholder: "Nombre", },
+        { label: "Apodo: ", name: "apodo", type: "text", placeholder: "Apodo", },
+        { label: "Cumpleaños: ", name: "fecha", type: "date", placeholder: "Fecha", },
         { label: "Descripcion: ", name: "descripcion", type: "text", placeholder: "Descripcion", },
     ]
 

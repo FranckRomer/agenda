@@ -57,7 +57,7 @@ const FormLogin = () => {
 
             <form onSubmit={handleSubmit}>
                 {Formulario.map((form, index) => (
-                    <div key={index} className='flex gap-4 m-4 justify-between'>
+                    <div key={index} className='flex md:gap-4 my-4 justify-between'>
                         <p>{form.label}</p>
                         <input
                             name={form.name}
@@ -65,7 +65,7 @@ const FormLogin = () => {
                             placeholder={form.placeholder}
                             onChange={handleChange}
                             required
-                            className='bg-transparent border-b border-black dark:border-white'
+                            className='bg-transparent border-b  border-black dark:border-white'
                         />
                     </div>
                 ))}
